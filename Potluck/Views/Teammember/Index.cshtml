@@ -1,0 +1,39 @@
+﻿@model List<Teammember>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<div class="rsvpform">
+<h1>RSVP List</h1>
+</div>
+<hr />
+<table style="margin-left:350px">
+    <thead>
+        <tr>
+            <th style="text-align:left">Team Member</th>
+            <th style="text-align:center">Guest</th>
+            <th style="text-align:center">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Teammember teammembers in Model) {
+            <tr>
+                <td style="width:30%; text-align:left">@teammembers.FirstName @teammembers.LastName</td>
+                <td style="width:30%; text-align:center">@if(teammembers.GuestName == null || teammembers.GuestName.Length < 1)
+                    {
+                        <span>No</span>
+                    }
+                    else
+                    {
+                        <span>Yes</span>
+                    }
+                </td>
+                <td style="width:30%; text-align:center">
+                    <a href="/teammember/detail/@teammembers.Id">Details</a>
+                    <a href="/teammember/editform/@teammembers.Id">Edit</a>
+                    <a href="/teammember/delete/@teammembers.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

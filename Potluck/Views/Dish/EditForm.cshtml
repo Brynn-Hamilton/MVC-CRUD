@@ -1,0 +1,107 @@
+﻿@model Dish
+@{
+    ViewData["Title"] = "EditForm";
+}
+<div class="rsvpform">
+<h1>Edit Dish</h1>
+</div>
+<hr />
+
+<div class="container">
+    <form method="post" action="/dish/savechanges">
+          <div class="row">
+          <div class="col-25">
+              <label for="Id">ID:</label>
+          </div>
+          <div class="col-75">
+              <input type="text" id="Id" value="@Model.Id" name="Id" readonly /> <br />
+          </div>
+      </div>
+           <div class="row">
+          <div class="col-25">
+              <label for="TMName">Name:</label>
+          </div>
+          <div class="col-75">
+              <input type="text" id="TMName" name="TMName" value="@Model.TMName" /><br />
+          </div>
+      </div>
+         <div class="row">
+          <div class="col-25">
+              <label for="phonenum">Phone Number:</label>
+          </div>
+          <div class="col-75">
+              <input type="text" name="PhoneNumber" id="phonenum" value="@Model.PhoneNumber"  />@TempData["PhoneError"]<br />
+          </div>
+      </div>
+      <div class="row">
+          <div class="col-25">
+              <label for="dish">Dish Name:</label>
+          </div>
+          <div class="col-75">
+              <input type="text" id="dish" name="DishName" value="@Model.DishName" />@TempData["DishNameError"]<br />
+          </div>
+      </div>
+            <div class="row">
+          <div class="col-25">
+              <label for="dishdesc">Dish Description:</label>
+          </div>
+          <div class="col-75">
+              <input type="text" id="dishdesc" name="DishDescription" value="@Model.DishDescription" /><br />
+          </div>
+      </div>
+
+        <div class="row">
+          <div class="col-25">
+              <label for="category">Category:</label>
+          </div>
+          <div class="col-75">
+              <select name="Category">
+                    @if(Model.Category == "Appetizer")
+                    {
+                        <option selected>Appetizer</option>
+                    }
+                    else
+                    {
+                        <option>Appetizer</option>
+                    }
+                    @if(Model.Category == "Salad")
+                    {
+                        <option selected>Salad</option>
+                    }
+                    else
+                    {
+                        <option>Salad</option>
+                    }
+                    @if(Model.Category == "Main")
+                    {
+                        <option selected>Main</option>
+                    }
+                    else
+                    {
+                        <option>Main</option>
+                    }
+                    @if(Model.Category == "Dessert")
+                    {
+                        <option selected>Dessert</option>
+                    }
+                    else
+                    {
+                        <option>Dessert</option>
+                    }
+                    @if(Model.Category == "Beverage")
+                    {
+                        <option selected>Beverage</option>
+                    }
+                    else
+                    {
+                        <option>Beverage</option>
+                    }
+        </select> <br />
+          </div>
+      </div>
+    <input type="submit" value="Save Changes"/>
+</form>
+</div>
+
+
+

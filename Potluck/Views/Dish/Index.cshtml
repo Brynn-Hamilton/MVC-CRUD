@@ -1,0 +1,32 @@
+﻿@model List<Dish>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<div class="rsvpform">
+<h1>Registered Dishes</h1>
+</div>
+<hr />
+<table style="margin-left:350px">
+    <thead>
+        <tr>
+            <th style="text-align:center">Dish</th>
+            <th style="text-align:center">Category</th>
+            <th style="text-align:center">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Dish dishes in Model) {
+            <tr>
+                <td style="width:30%; text-align:center">@dishes.DishName</td>
+                <td style="width:30%; text-align:center">@dishes.Category</td>
+                <td style="width:30%; text-align:center">
+                    <a href="/dish/detail/@dishes.Id">Details</a>
+                    <a href="/dish/editform/@dishes.Id">Edit</a>
+                    <a href="/dish/delete/@dishes.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

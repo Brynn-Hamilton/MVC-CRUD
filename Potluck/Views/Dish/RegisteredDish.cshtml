@@ -1,0 +1,15 @@
+﻿@model Dish;
+@{
+    ViewData["Title"] = "RegisteredDish";
+}
+
+<div class="home">
+    <h1>Dish Registration Confirmation</h1>
+<hr />
+Thank you @Model.TMName for registering your @Model.Category dish: @Model.DishName. 
+<br />
+@if(@Model.DishDescription != null && @Model.DishDescription.Length > 0){<span>@Model.DishDescription - sounds delicious!</span>}
+<br />
+We will contact you at @Model.PhoneNumber with any updates!
+</div>
+

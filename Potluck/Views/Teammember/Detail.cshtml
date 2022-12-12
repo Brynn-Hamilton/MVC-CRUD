@@ -1,0 +1,14 @@
+﻿@model Teammember
+
+@{
+    ViewData["Title"] = "Detail";
+}
+
+<div class="rsvpform">
+<h1>RSVP Details</h1>
+<hr />
+
+@Model.FirstName @Model.LastName is attending the potluck on @Model.AttendanceDate @if(@Model.GuestName != null && @Model.GuestName.Length > 0) { <span> with guest @Model.GuestName</span>} !
+<br />
+Contact: @Model.EmailAddress.
+</div>

@@ -1,0 +1,99 @@
+﻿@model Teammember
+@{
+    ViewData["Title"] = "EditForm";
+}
+<div class="rsvpform">
+<h1>Edit Dish</h1>
+</div>
+<hr />
+
+<div class="container">
+    <form method="post" action="/teammember/savechanges">
+          <div class="row">
+          <div class="col-25">
+              <label for="Id">ID:</label>
+          </div>
+          <div class="col-75">
+              <input type="text" id="Id" value="@Model.Id" name="Id" readonly /> <br />
+          </div>
+      </div>
+           <div class="row">
+          <div class="col-25">
+              <label for="fname"> First Name:</label>
+          </div>
+          <div class="col-75">
+              <input type="text" id="firstname" name="FirstName" value="@Model.FirstName" /><br />
+          </div>
+      </div>
+         <div class="row">
+          <div class="col-25">
+              <label for="lname">LastName:</label>
+          </div>
+          <div class="col-75">
+              <input type="text" name="LastName" id="lname" value="@Model.LastName"  />@TempData["LastNameError"]<br />
+          </div>
+      </div>
+      <div class="row">
+          <div class="col-25">
+              <label for="email">Email:</label>
+          </div>
+          <div class="col-75">
+              <input type="text" id="email" name="EmailAddress" value="@Model.EmailAddress" />@TempData["EmailError"]<br />
+          </div>
+      </div>
+        <div class="row">
+          <div class="col-25">
+              <label for="date">Attendance Date:</label>
+          </div>
+          <div class="col-75">
+              <select name="AttendanceDate">
+                    @if(Model.AttendanceDate == "10/11/2022 11:00:00 AM")
+                    {
+                        <option selected>10/11/2022 11:00:00 AM</option>
+                    }
+                    else
+                    {
+                        <option>10/11/2022 11:00:00 AM</option>
+                    }
+                    @if(Model.AttendanceDate == "10/13/2022 2:00:00 PM")
+                    {
+                        <option selected>10/13/2022 2:00:00 PM</option>
+                    }
+                    else
+                    {
+                        <option>10/13/2022 2:00:00 PM</option>
+                    }
+                    @if(Model.AttendanceDate == "10/18/2022 11:00:00 AM")
+                    {
+                        <option selected>10/18/2022 11:00:00 AM</option>
+                    }
+                    else
+                    {
+                        <option>10/18/2022 11:00:00 AM</option>
+                    }
+                    @if(Model.AttendanceDate == "10/20/2022 2:00:00 PM")
+                    {
+                        <option selected>10/20/2022 2:00:00 PM</option>
+                    }
+                    else
+                    {
+                        <option>10/20/2022 2:00:00 PM</option>
+                    }
+        </select> <br />
+          </div>
+      </div>
+            <div class="row">
+          <div class="col-25">
+              <label for="guest">Guest Name:</label>
+          </div>
+          <div class="col-75">
+              <input type="text" id="guest" name="GuestName" value="@Model.GuestName" /><br />
+          </div>
+      </div>
+    <input type="submit" value="Save Changes"/>
+</form>
+</div>
+
+
+
+
